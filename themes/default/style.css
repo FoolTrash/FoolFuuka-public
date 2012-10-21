@@ -643,12 +643,12 @@ body.theme_default {
     color: #117743;
 }
 
-.theme_default article.thread .post_author a {
+.theme_default article.thread .post_poster_data a {
     text-decoration:underline;
 }
 
 
-.theme_default article.thread .post_trip {
+.theme_default article.thread .post_tripcode {
 	font-weight: normal;
     color: #117743;
 }

@@ -51,13 +51,16 @@ foreach ($board->get_comments() as $key => $post) :
 	<header>
 		<div class="post_data">
 			<?php if ($op->get_title_processed() !== '') : ?><h2 class="post_title"><?= $op->get_title_processed() ?></h2><?php endif; ?>
-			<span class="post_author"><?php if ($op->email && $op->email !== 'noko') : ?><a href="mailto:<?= rawurlencode($op->email) ?>"><?php endif; ?><?= $op->get_name_processed() ?><?php if ($op->get_trip_processed()) : ?> <span class="post_trip"><?= $op->get_trip_processed() ?></span><?php endif; ?><?php if ($op->email && $op->email !== 'noko') : ?></a><?php endif ?></span>
-			<?php if ($op->get_poster_hash_processed()) : ?><span class="poster_hash">ID:<?= $op->get_poster_hash_processed() ?></span><?php endif; ?>
-			<?php if ($op->capcode != 'N') : ?>
-				<?php if ($op->capcode == 'M') : ?><span class="post_level post_level_moderator">## <?= __('Mod') ?></span><?php endif ?>
-				<?php if ($op->capcode == 'A') : ?><span class="post_level post_level_administrator">## <?= __('Admin') ?></span><?php endif ?>
-				<?php if ($op->capcode == 'D') : ?><span class="post_level post_level_developer">## <?= __('Developer') ?></span><?php endif ?>
-			<?php endif; ?>
+			<span class="post_poster_data">
+				<?php if ($op->email && $op->email !== 'noko') : ?><a href="mailto:<?= rawurlencode($op->email) ?>"><?php endif; ?>	<span class="post_author"><?= $op->get_name_processed() ?></span><span class="post_tripcode"><?= $op->get_trip_processed() ?></span><?php if ($op->email && $op->email !== 'noko') : ?></a><?php endif ?>
+
+				<?php if ($op->get_poster_hash_processed()) : ?><span class="poster_hash">ID:<?= $op->get_poster_hash_processed() ?></span><?php endif; ?>
+				<?php if ($op->capcode != 'N') : ?>
+					<?php if ($op->capcode == 'M') : ?><span class="post_level post_level_moderator">## <?= __('Mod') ?></span><?php endif ?>
+					<?php if ($op->capcode == 'A') : ?><span class="post_level post_level_administrator">## <?= __('Admin') ?></span><?php endif ?>
+					<?php if ($op->capcode == 'D') : ?><span class="post_level post_level_developer">## <?= __('Developer') ?></span><?php endif ?>
+				<?php endif; ?>
+			</span>
 			<span class="time_wrap">
 				<time datetime="<?= gmdate(DATE_W3C, $op->timestamp) ?>" class="show_time" <?php if ($op->board->archive) : ?> title="<?= __('4chan Time') . ': ' . gmdate('D M d H:i:s Y', $op->get_original_timestamp()) ?>"<?php endif; ?>><?= gmdate('D M d H:i:s Y', $op->timestamp) ?></time>
 			</span>
