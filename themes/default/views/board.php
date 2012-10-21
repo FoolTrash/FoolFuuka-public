@@ -52,7 +52,7 @@ foreach ($board->get_comments() as $key => $post) :
 		<div class="post_data">
 			<?php if ($op->get_title_processed() !== '') : ?><h2 class="post_title"><?= $op->get_title_processed() ?></h2><?php endif; ?>
 			<span class="post_poster_data">
-				<?php if ($op->email && $op->email !== 'noko') : ?><a href="mailto:<?= rawurlencode($op->email) ?>"><?php endif; ?>	<span class="post_author"><?= $op->get_name_processed() ?></span><span class="post_tripcode"><?= $op->get_trip_processed() ?></span><?php if ($op->email && $op->email !== 'noko') : ?></a><?php endif ?>
+				<?php if ($op->email && $op->email !== 'noko') : ?><a href="mailto:<?= rawurlencode($op->email) ?>" class="post_email"><?php endif; ?>	<span class="post_author"><?= $op->get_name_processed() ?></span><span class="post_tripcode"><?= $op->get_trip_processed() ?></span><?php if ($op->email && $op->email !== 'noko') : ?></a><?php endif ?>
 
 				<?php if ($op->get_poster_hash_processed()) : ?><span class="poster_hash">ID:<?= $op->get_poster_hash_processed() ?></span><?php endif; ?>
 				<?php if ($op->capcode != 'N') : ?>
